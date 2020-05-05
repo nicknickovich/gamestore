@@ -1,5 +1,9 @@
 import os
 from flask import Flask
+from flask_restful import Api
+
+
+api_restful = Api()
 
 
 def create_app(config_file):
@@ -15,6 +19,11 @@ def create_app(config_file):
             app.config.from_pyfile("test.py")
 
         from app.controllers import main
+        from app.api import api
+
         app.register_blueprint(main)
+        app.register_blueprint(api)
+
+        api_restful.init_app(app)
 
     return app

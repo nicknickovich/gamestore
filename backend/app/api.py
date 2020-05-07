@@ -1,6 +1,7 @@
 from flask import Blueprint
 from flask_restful import Resource
 from app import api_restful
+from app.models import User
 
 
 api = Blueprint("api", __name__)

@@ -1,8 +1,10 @@
 import os
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 
 
+db = SQLAlchemy()
 api_restful = Api()
 
 
@@ -17,6 +19,8 @@ def create_app(config_file):
             app.config.from_pyfile("dev.py")
         elif environment == "testing":
             app.config.from_pyfile("test.py")
+
+        db.init_app(app)
 
         from app.controllers import main
         from app.api import api

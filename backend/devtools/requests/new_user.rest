@@ -1,0 +1,10 @@
+POST http://localhost:5000/api/users
+Content-Type: application/json
+
+{
+    "email": "nicoleburton@weaver.biz",
+    "first_name": "Ashley",
+    "last_name": "Perkins",
+    "username": "Ashley_Perkins",
+    "password": "BM12PEoi$!"
+}

@@ -130,3 +130,8 @@ dmypy.json
 
 # SQLite
 *.db
+
+# VSCode rest client
+
+requests/
+*.rest

@@ -2,9 +2,9 @@ POST http://localhost:5000/api/users
 Content-Type: application/json
 
 {
-    "email": "nicoleburton@weaver.biz",
-    "first_name": "Ashley",
-    "last_name": "Perkins",
-    "username": "Ashley_Perkins",
-    "password": "BM12PEoi$!"
+    "email": "robert37@gmail.com",
+    "first_name": "Kristy",
+    "last_name": "Garcia",
+    "username": "Kristy_Garcia",
+    "password": "s4G0cv+u_q"
 }

@@ -7,6 +7,7 @@ from app.models import (
 class GameSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Game
+        exclude = ("uuid",)
         load_instance = True
 
 

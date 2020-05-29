@@ -132,6 +132,8 @@ dmypy.json
 *.db
 
 # VSCode rest client
-
 requests/
 *.rest
+
+# json files for testing
+*.json

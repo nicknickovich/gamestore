@@ -21,6 +21,8 @@ class UserSchema(SQLAlchemyAutoSchema):
 class CommentSchema(SQLAlchemyAutoSchema):
     class Meta:
         model = Comment
+        exclude = ("uuid",)
+        include_fk = True
         load_instance = True
 
 

@@ -1,12 +1,13 @@
 from flask import Blueprint, request
 from flask_restful import Resource
 from app import api_restful, db, schemas
-from app.models import User, Game
+from app.models import User, Game, Comment
 
 
 api = Blueprint("api", __name__)
 user_schema = schemas.UserSchema()
 game_schema = schemas.GameSchema()
+comment_schema = schemas.CommentSchema()
 
 
 class UserRoutes(Resource):
@@ -72,9 +73,40 @@ class GameRoutes(Resource):
         db.session.commit()
         return "", 204
 
-
 api_restful.add_resource(
     GameRoutes,
     "/api/games",
     "/api/games/<id>"
+)
+
+
+class CommentRoutes(Resource):
+    def get(self, id):
+        comment = Comment.query.get_or_404(id)
+        return comment_schema.dump(comment)
+
+    def post(self):
+        new_comment = comment_schema.load(request.json, session=db.session)
+        db.session.add(new_comment)
+        db.session.commit()
+        return comment_schema.dump(new_comment), 201
+
+    def put(self, id):
+        comment = Comment.query.get_or_404(id)
+        updated_comment = comment_schema.load(
+            request.json, instance=comment, session=db.session
+        )
+        db.session.commit()
+        return comment_schema.dump(updated_comment)
+
+    def delete(self, id):
+        comment = Comment.query.get_or_404(id)
+        db.session.delete(comment)
+        db.session.commit()
+        return "", 204
+
+api_restful.add_resource(
+    CommentRoutes,
+    "/api/comments",
+    "/api/comments/<id>"
 )

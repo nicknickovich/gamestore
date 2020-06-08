@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api
 
@@ -10,6 +11,7 @@ api_restful = Api()
 
 def create_app(config_file):
     app = Flask(__name__, instance_relative_config=True)
+    CORS(app)
     with app.app_context():
         app.config.from_pyfile("config.py")
         environment = os.getenv("FLASK_ENV")

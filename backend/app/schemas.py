@@ -24,21 +24,3 @@ class CommentSchema(SQLAlchemyAutoSchema):
         exclude = ("uuid",)
         include_fk = True
         load_instance = True
-
-
-class GenreSchema(SQLAlchemyAutoSchema):
-    class Meta:
-        model = Genre
-        load_instance = True
-
-
-class OwnedGamesSchema(SQLAlchemyAutoSchema):
-    class Meta:
-        model = OwnedGames
-        load_instance = True
-
-
-class GamesByGenreSchema(SQLAlchemyAutoSchema):
-    class Meta:
-        model = GamesByGenre
-        load_instance = True

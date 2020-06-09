@@ -3,7 +3,7 @@ import React from "react";
 const User = (props) => {
   return (
     <div>
-      <h2>{props.first_name} {props.last_name}</h2>
+      <h3>{props.first_name} {props.last_name}</h3>
       <ul>
         <li>{props.username}</li>
         <li>{props.account_created}</li>

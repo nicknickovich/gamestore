@@ -6,6 +6,7 @@ const Game = (props) => {
       <h3>{props.name}</h3>
       <ul>
         <li>{props.description}</li>
+        <li>{props.coverImage}</li>
         <li>{props.price}</li>
       </ul>
     </div>
